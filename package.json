@@ -19,6 +19,6 @@
         "url": "https://github.com/chpio/sketch.d.ts/issues"
     },
     "devDependencies": {
-        "@types/node": "^13.7.7"
+        "@types/node": "^14.14.22"
     }
 }
