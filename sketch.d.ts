@@ -1,8 +1,8 @@
 /**
- * _Sketch is unexposed in Sketch JavaScript API.  
+ * _Sketch is unexposed in Sketch JavaScript API.
  * You should never use this namespace,
  * unless use it to extend sketch api in prototype:
- * @example 
+ * @example
  * // here is an example extends the Document
  * import { _Sketch } from "sketch/sketch";
  * declare module 'sketch/sketch' {
@@ -135,10 +135,10 @@ export declare namespace _Sketch {
         /**
          * Find Layers fitting some criteria.
          * Selectors are of type string and can be the following:
-         * `name, id, frame, frame.x, frame.y, frame.width, frame.height, locked, hidden, selected, type, style.fills.color`  
+         * `name, id, frame, frame.x, frame.y, frame.width, frame.height, locked, hidden, selected, type, style.fills.color`
          * You can use these selectors in conjunction with an operator:
          * `= (equal)`, `*= (contains)`, `$= (endswith)`, `!= (not equal)`, `^= (begins with)`, `>= (greater than or equal)`, `=< (less than or equal)`, `> (greater than)`, `< (less than)`
-         * 
+         *
          * Some Selectors have shorthand notation
          * - type: find('ShapePath', document)
          * - id: find(`#${layer_id}`, document)or find("#91EC1D70-6A97-...-DEE84160C4F4", document)
@@ -207,49 +207,49 @@ export declare namespace _Sketch {
         /** The Selection of the layers that the user has selected in the currently selected page. */
         get selectedLayers(): Selection;
         /**
-         * The path to the document (or the appcast URL 
+         * The path to the document (or the appcast URL
          * in case of a Document from a remote Library).
          */
         path: string;
         /**
-         * The list of all shared layer styles defined 
+         * The list of all shared layer styles defined
          * in the document.
          */
         sharedLayerStyles: SharedStyle[];
         /**
-         * The list of all shared text styles defined 
+         * The list of all shared text styles defined
          * in the document.
          */
         sharedTextStyles: SharedStyle[];
         /**
-         * A list of color assets defined in the 
-         * document. Mutating the returned array will 
+         * A list of color assets defined in the
+         * document. Mutating the returned array will
          * update the document colors.
          * @deprecated use Document.swatches instead.
          */
         colors: ColorAsset[];
         /**
-         * A list of swatches defined in the document. 
+         * A list of swatches defined in the document.
          * Mutating the returned array will update the document swatches.
          */
         swatches: Swatch[];
         /**
-         * A list of gradient assets defined in the 
-         * document. Mutating the returned array will 
+         * A list of gradient assets defined in the
+         * document. Mutating the returned array will
          * update the document gradients.
          */
         gradients: GradientAsset[];
         /** The color space of the document. */
         colorSpace: ColorSpace;
         /**
-         * A method to help find the first layer in this document 
+         * A method to help find the first layer in this document
          * which has the given id.
          * @returns Return a Layer object or undefined if it’s not found.
          * @param layerId The ID of the layer to find
          */
         getLayerWithID(layerId: string): Layer | undefined;
         /**
-         * A method to help find the layers in this document which 
+         * A method to help find the layers in this document which
          * have the given name.
          * @returns Return an array of Layer.
          * @param name The name of the layer to find
@@ -269,7 +269,7 @@ export declare namespace _Sketch {
         getSharedTextStyleWithID(sharedStyleId: string): SharedStyle | undefined;
         /**
          * A method to get all symbol masters defined in the document.
-         * @returns Return an array of the SymbolMaster objects defined 
+         * @returns Return an array of the SymbolMaster objects defined
          * in the document.
          */
         getSymbols(): SymbolMaster[];
@@ -285,50 +285,50 @@ export declare namespace _Sketch {
          */
         centerOnLayer(layer: Layer): void;
         /**
-         * A method to save a document to a specific path 
-         * or ask the user to choose where to save it. 
-         * The method is asynchronous so if you want to 
-         * do something after the document is saved, 
-         * make sure that you pass a callback and continue 
+         * A method to save a document to a specific path
+         * or ask the user to choose where to save it.
+         * The method is asynchronous so if you want to
+         * do something after the document is saved,
+         * make sure that you pass a callback and continue
          * your script there.
-         * 
-         * A function called after the document is saved. 
-         * It is called with an Error if saving the Document 
+         *
+         * A function called after the document is saved.
+         * It is called with an Error if saving the Document
          * was unsuccessful.
-         * @param path 
-         * @param callback 
+         * @param path
+         * @param callback
          */
         save(path?: string, callback?: (error) => void): void;
         /**
-         * A method to save a document to a specific path 
-         * or ask the user to choose where to save it. 
-         * The method is asynchronous so if you want to 
-         * do something after the document is saved, 
-         * make sure that you pass a callback and continue 
+         * A method to save a document to a specific path
+         * or ask the user to choose where to save it.
+         * The method is asynchronous so if you want to
+         * do something after the document is saved,
+         * make sure that you pass a callback and continue
          * your script there.
-         * 
-         * A function called after the document is saved. 
-         * It is called with an Error if saving the Document 
+         *
+         * A function called after the document is saved.
+         * It is called with an Error if saving the Document
          * was unsuccessful.
-         * @param path 
+         * @param path
          * @param options
-         * @param callback 
+         * @param callback
          */
         save(path?: string, options?: { saveMode: SaveMode }, callback?: (error) => void): void;
         /** A method to close a document. */
         close();
         /**
-         * A method to change a document’s color space. 
-         * For an in-depth discussion of this topic and 
-         * the difference between assigning and converting 
-         * the color space check the color management 
+         * A method to change a document’s color space.
+         * For an in-depth discussion of this topic and
+         * the difference between assigning and converting
+         * the color space check the color management
          * documentation.
-         * 
+         *
          * By default the method assigns a new color space.
-         * Pass true as an optional second argument 
+         * Pass true as an optional second argument
          * to convert instead of assign
-         * @param colorSpace 
-         * @param convert 
+         * @param colorSpace
+         * @param convert
          */
         changeColorSpace(colorSpace: ColorSpace, convert?: boolean)
         /** Enumeration of the available color space settings. */
@@ -338,26 +338,26 @@ export declare namespace _Sketch {
         /** Access all the open Documents */
         static getDocuments(): Document[];
         /**
-         * A method to open an existing sketch document or ask the 
-         * user to open one. The method is asynchronous so if you 
-         * want to do something after the document is opening it, 
-         * make sure that you pass a callback and continue your 
+         * A method to open an existing sketch document or ask the
+         * user to open one. The method is asynchronous so if you
+         * want to do something after the document is opening it,
+         * make sure that you pass a callback and continue your
          * script there.
-         * @param callback A function called after the document is 
-         * opened. It is called with an Error if opening the Document 
+         * @param callback A function called after the document is
+         * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
         static open(callback?: (err: Error, document?: Document) => void);
         /**
-         * A method to open an existing sketch document or ask the 
-         * user to open one. The method is asynchronous so if you 
-         * want to do something after the document is opening it, 
-         * make sure that you pass a callback and continue your 
+         * A method to open an existing sketch document or ask the
+         * user to open one. The method is asynchronous so if you
+         * want to do something after the document is opening it,
+         * make sure that you pass a callback and continue your
          * script there.
-         * @param path The path to the document to open. 
+         * @param path The path to the document to open.
          * If undefined, the user will be asked to select one.
-         * @param callback A function called after the document is 
-         * opened. It is called with an Error if opening the Document 
+         * @param callback A function called after the document is
+         * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
         static open(path: string, callback?: (err: Error, document?: Document) => void);
@@ -387,25 +387,25 @@ export declare namespace _Sketch {
          */
         getDocument(): Document;
         /**
-         * Get the Symbols that can be imported  
-         * To import a symbol from a Library, do not access its Document and look for the SymbolMaster directly. Instead, get the Symbol References of the Library and use those to import them.  
+         * Get the Symbols that can be imported
+         * To import a symbol from a Library, do not access its Document and look for the SymbolMaster directly. Instead, get the Symbol References of the Library and use those to import them.
          * Those references depends on the document you want to import them into. For example if a document has already imported a symbol, it will reference the local version to keep all the instances in sync.
          * @returns An array of Shareable Object that represents the Symbols which you can import from the Library.
          */
         getImportableSymbolReferencesForDocument(document: Document): ImportableObject[];
         /**
-         * Get the Shared Layer Styles that can be imported  
-         * To import a shared style from a Library, do not access its Document and look for the SharedStyle directly. Instead, get the Shared Layer Style References of the Library and use those to import them.  
+         * Get the Shared Layer Styles that can be imported
+         * To import a shared style from a Library, do not access its Document and look for the SharedStyle directly. Instead, get the Shared Layer Style References of the Library and use those to import them.
          * Those references depends on the document you want to import them into. For example if a document has already imported a shared style, it will reference the local version to keep all the instances in sync.
-         * @param document 
+         * @param document
          * @returns An array of Shareable Object that represents the Symbols which you can import from the Library.
          */
         getImportableLayerStyleReferencesForDocument(document: Document): ImportableObject[];
         /**
-         * Get the Text Styles that can be imported  
-         * To import a shared style from a Library, do not access its Document and look for the SharedStyle directly. Instead, get the Shared Layer Style References of the Library and use those to import them.  
+         * Get the Text Styles that can be imported
+         * To import a shared style from a Library, do not access its Document and look for the SharedStyle directly. Instead, get the Shared Layer Style References of the Library and use those to import them.
          * Those references depends on the document you want to import them into. For example if a document has already imported a shared style, it will reference the local version to keep all the instances in sync.
-         * @param document 
+         * @param document
          * @returns An array of Shareable Object that represents the Symbols which you can import from the Library.
          */
         getImportableTextStyleReferencesForDocument(document: Document): ImportableObject[];
@@ -413,7 +413,7 @@ export declare namespace _Sketch {
          * Get the Shared Swatches that can be imported
          * To import a Swatch from a Library, do not access its Document and look for the Swatch directly. Instead, get the Shared Swatch References of the Library and use those to import them.
          * Those references depends on the document you want to import them into. For example if a document has already imported a shared Swatch, it will reference the local version to keep all the instances in sync.
-         * @param document 
+         * @param document
          * @returns An array of Shareable Object that represents the Shared Swatches which you can import from the Library.
          */
         getImportableSwatchReferencesForDocument(document: Document): ImportableObject[];
@@ -424,13 +424,13 @@ export declare namespace _Sketch {
         /** Access all the Libraries */
         static getLibraries(): Library[];
         /**
-         * Get a Library from a path  
+         * Get a Library from a path
          * Get the library for a local Sketch document. If the Document was already added as a Library, it will simply return it. If it is not already a Library, it will be added.
-         * @param path 
+         * @param path
          */
         static getLibraryForDocumentAtPath(path: string): Library;
         /**
-         * Get a remote Library from an RSS feed URL  
+         * Get a remote Library from an RSS feed URL
          * Get the remote library for an RSS feed. If the RSS feed was already added as a Library, it will simply return it. If it is not already a Library, it will be added.
          * @param url The URL to the rss feed describing the versions of the library.
          * @param callback A function called after the library is added. It is called with an Error if adding the Library was unsuccessful and a Library (or undefined).
@@ -486,19 +486,19 @@ export declare namespace _Sketch {
         /** The size variant of the font of a Text Layer. */
         fontStretch: 'compressed' | 'condensed' | 'narrow' | 'expanded' | 'poster' | undefined;
         /**
-         * The underline decoration of a Text Layer.  
+         * The underline decoration of a Text Layer.
          * string: <line-style> [<line-pattern>] ['by-word'] / undefined where <line-style> can be single / thick / double and <line-pattern> can be dot / dash / dash-dot / dash-dot-dot
          */
         textUnderline?: string;
         /**
-         * The strikethrough decoration of a Text Layer.  
+         * The strikethrough decoration of a Text Layer.
          * string: <line-style> [<line-pattern>] ['by-word'] / undefined where <line-style> can be single / thick / double and <line-pattern> can be dot / dash / dash-dot / dash-dot-dot
          */
         textStrikethrough?: string;
         /** The axes of the Text Layer font (only available when the font is a variable font). */
         fontAxes: FontAxes;
         /**
-         * Get the default line height  
+         * Get the default line height
          * When no line height is specified, style.lineHeight will be undefined. You can get the default line height of the font using style.getDefaultLineHeight().
          * @returns A number if the layer is a Text layer or undefined.
          */
@@ -546,20 +546,20 @@ export declare namespace _Sketch {
          */
         getLibrary(): Library;
         /**
-         * Sync the local reference with the library version  
+         * Sync the local reference with the library version
          * If a Library has some updates, you can synchronize the local Shared Style with the Library’s version and bypass the panel where the user chooses the updates to bring.
          * @returns true if it succeeded.
          */
         syncWithLibrary(): boolean;
         /**
-         * Unlink the local reference from the library  
+         * Unlink the local reference from the library
          * You can unlink a Shared Style from the Library it comes from and make it a local Shared Style instead.
          * @returns true if it succeeded.
          */
         unlinkFromLibrary(): boolean;
         /**
          * Create a new Shared Style with a specific name in a specific Document.
-         * @param options 
+         * @param options
          */
         static fromStyle(options: { name: string, style: Style, document: Document }): SharedStyle;
         static get StyleType(): typeof StyleType;
@@ -585,8 +585,8 @@ export declare namespace _Sketch {
         size: '2x' | '100w' | '100width' | '100px' | '300h' | '300height';
     }
     /**
-     * A utility class to represent the layers selection. 
-     * Contains some methods to make interacting with a 
+     * A utility class to represent the layers selection.
+     * Contains some methods to make interacting with a
      * selection easier.
      */
     class Selection {
@@ -643,27 +643,27 @@ export declare namespace _Sketch {
         height: number;
         /**
          * Adjust the rectangle by offsetting it.
-         * @param x 
-         * @param y 
+         * @param x
+         * @param y
          * @returns Return this rectangle (useful if you want to chain the calls).
          */
         offset(x: number, y: number): Rectangle;
         /**
          * Adjust the rectangle by scaling it. The scaleHeight argument can be omitted to apply the same factor on both the width and the height.
-         * @param scaleWidth 
-         * @param scaleHeight 
+         * @param scaleWidth
+         * @param scaleHeight
          * @returns Return this rectangle (useful if you want to chain the calls).
          */
         scale(scaleWidth, scaleHeight): Rectangle;
         /**
-         * Change the coordinates basis  
+         * Change the coordinates basis
          * Each layer defines its own system of coordinates (with its origin at the top left of the layer). You can change that basis from one layer to the other with changeBasis.
-         * 
+         *
          * @example var newRect = rect.changeBasis({
          *   from: layerA,
          *   to: layerB,
          * })
-         * 
+         *
          * var parentRect = rect.changeBasis({
          *   from: layerA,
          *   to: layerA.parent,
@@ -717,7 +717,7 @@ export declare namespace _Sketch {
         /** If the layer is hidden. */
         hidden: boolean;
         /**
-         * The frame of the Layer. This is given in coordinates 
+         * The frame of the Layer. This is given in coordinates
          * that are local to the parent of the layer.
          */
         frame: Rectangle;
@@ -737,12 +737,12 @@ export declare namespace _Sketch {
             flippedVertically: boolean;
         };
         /**
-         * The index of this layer in its parent. 
-         * The layer at the back of the parent (visually) 
-         * will be layer 0. The layer at the front will 
+         * The index of this layer in its parent.
+         * The layer at the back of the parent (visually)
+         * will be layer 0. The layer at the front will
          * be layer n - 1 (if there are n layers).
-         * 
-         * You can set the index of the layer to move 
+         *
+         * You can set the index of the layer to move
          * it in the hierarchy.
          */
         index: number;
@@ -827,7 +827,7 @@ export declare namespace _Sketch {
         static getSymbolsPage(document: Document): Page | undefined;
         /**
          * Create the Symbols Page
-         * 
+         *
          * A method to create the Page with the name that Sketch will recognize as the Symbols Page.
          * @returns Return a Page.
          * @example var symbolsPage = Page.createSymbolsPage();symbolsPage.parent = document
@@ -879,7 +879,7 @@ export declare namespace _Sketch {
         static fromNative(sketchObject: object): Image;
         /**
          * Create a new Image.
-         * 
+         *
          * The image property accept a wide range of input:
          * an ImageData
          * - a Buffer
@@ -889,7 +889,7 @@ export declare namespace _Sketch {
          * - a string: path to the file to load the image from
          * - an object with a path property: path to the file to load the image from
          * - an object with a base64 string: a base64 encoded image
-         * @param options 
+         * @param options
          */
         constructor(options?: {
             parent?: Group | Artboard | Page,
@@ -911,13 +911,13 @@ export declare namespace _Sketch {
         static fromNative(sketchObject: object): ShapePath;
         /**
          * Create a new ShapePath
-         * 
+         *
          * You can only set the shapeType when creating a new one. Once it is created, the shapeType is read-only. If it is not specified and you do not specify any points, it will default to ShapePath.ShapeType.Rectangle (if you do specify some points, it will default to ShapePath.ShapeType.Custom).
          * @example const shapePath = new ShapePath({
          * name: 'my shape path',
          * shapeType: ShapePath.ShapeType.Oval,
          * })
-         * @param options 
+         * @param options
          */
         constructor(options?: {
             shapeType?: ShapeType,
@@ -946,7 +946,7 @@ export declare namespace _Sketch {
         /**
          * create a new ShapePath from an SVG path
          * @example const shapePath = ShapePath.fromSVGPath('M10 10 H 90 V 90 H 10 L 10 10')
-         * @param svg 
+         * @param svg
          */
         static fromSVGPath(svg: string): ShapePath;
     }
@@ -1016,16 +1016,16 @@ export declare namespace _Sketch {
         getLibrary(): Library;
         /**
          * Sync the local reference with the library version
-         * 
+         *
          * If a Library has some updates, you can synchronize the local Symbol Master with the Library’s version and bypass the panel where the user chooses the updates to bring.
          * @returns true if it succeeded.
          */
         syncWithLibrary(): boolean;
         /**
          * Unlink the local reference from the library
-         * 
+         *
          * You can unlink a Symbol Master from the Library it comes from and make it a local Symbol Master instead. It will be added to the Symbols Page.
-         * 
+         *
          * @returns true if it succeeded.
          */
         unlinkFromLibrary(): boolean;
@@ -1042,7 +1042,7 @@ export declare namespace _Sketch {
         static fromNative(sketchObject: object): SymbolInstance;
         /**
          * Create a new Symbol Instance
-         * @param options 
+         * @param options
          */
         constructor(options?: {
             symbolId: string,
@@ -1076,7 +1076,7 @@ export declare namespace _Sketch {
          */
         setOverrideValue(override: Override, value: string | any/*NSImage*/): SymbolInstance;
         /**
-         * Trigger a Smart Layout.  
+         * Trigger a Smart Layout.
          * In order to trigger a Smart Layout resize in an instance, for example after changing an override value, call the resizeWithSmartLayout() method.
          */
         resizeWithSmartLayout(): void;
@@ -1127,7 +1127,7 @@ export declare namespace _Sketch {
         /** If the override is selected (or undefined if it’s the override of a Symbol Master). */
         selected: boolean | undefined;
         /**
-         * Get the frame of an Override  
+         * Get the frame of an Override
          * The frame of an override can be different than the frame of its affected Layer in case where the Symbol Instance has been scaled for example.
          * @example var frame = override.getFrame()
          * @returns A Rectangle describing the frame of the affected layer in the Symbol Instance’s coordinates.
@@ -1146,21 +1146,21 @@ export declare namespace _Sketch {
     /** A set of functions to handle user settings. The settings are persisted when the user closes Sketch. */
     interface Settings {
         /**
-         * Get a plugin setting  
+         * Get a plugin setting
          * Return the value of a setting scoped to your plugin for a given key.
          * @param key The setting to look up.
          * @returns The setting that was stored for the given key. undefined if there was nothing.
          */
         settingForKey<T>(key: string): T | undefined;
         /**
-         * Set a plugin setting  
+         * Set a plugin setting
          * Store a value of a setting scoped to your plugin for a given key.
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
         setSettingForKey<T>(key: string, valye: T);
         /**
-         * Get a Sketch setting  
+         * Get a Sketch setting
          * Return the value of a Sketch setting for a given key.
          * @param key The setting to look up.
          * @returns The setting that was stored for the given key. undefined if there was nothing.
@@ -1168,13 +1168,13 @@ export declare namespace _Sketch {
         globalSettingForKey<T>(key: string): T | undefined;
         /**
          * Set a Sketch setting
-         * Store a value of a Sketch setting for a given key.  
+         * Store a value of a Sketch setting for a given key.
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
         setGlobalSettingForKey<T>(key: string, valye: T);
         /**
-         * Get a Layer setting  
+         * Get a Layer setting
          * Return the value of a setting for a given key on a specific Layer or DataOverride or Override.
          * @param layer The layer on which a setting is stored.
          * @param key The setting to look up.
@@ -1201,14 +1201,14 @@ export declare namespace _Sketch {
          */
         setDocumentSettingForKey<T>(document: Document, key: string, valye: T);
         /**
-         * Get a session setting  
+         * Get a session setting
          * Return the value of a variable which is persisted when the plugin finishes to run but is not persisted when Sketch closes. It is useful when you want to keep a value between plugin’s runs.
          * @param key The variable to look up.
          * @returns The setting that was stored for the given key. undefined if there was nothing.
          */
         sessionVariable<T>(key: string): T | undefined;
         /**
-         * Set a session setting  
+         * Set a session setting
          * Store a value of a variable which is persisted when the plugin finishes to run but is not persisted when Sketch closes. It is useful when you want to keep a value between plugin’s runs.
          * @param key The variable to set.
          * @param valye The value to set it to.
@@ -1267,7 +1267,7 @@ export declare namespace _Sketch {
     interface Async {
         /**
          * By default, Sketch cleans up your script as soon as its call-stack is empty. So if you schedule an asynchronous task, chances are that when the task returns, your script will be cleaned up and it will crash Sketch.
-         * 
+         *
          * A fiber is a way to keep track of a asynchronous task. The script will stay alive as long as at least one fiber is running.
          * @example var fiber = require('sketch/async').createFiber()
          * longRunningTask(function(err, result) {
@@ -1282,22 +1282,22 @@ export declare namespace _Sketch {
         /** To end the fiber. This will tell Sketch that it can garbage collect the script if no other fiber is running. */
         cleanup(): void;
         /**
-         * Run a function when the fiber is about to be cleaned up by setting a callback.  
+         * Run a function when the fiber is about to be cleaned up by setting a callback.
          * Do your clean up in this function instead of doing before calling fiber.cleanup: there might be some cases where the fiber will be cleaned up by Sketch so you need to account for that.
-         * @param callback 
+         * @param callback
          */
         onCleanup(callback: () => void);
     }
     /**
-     * An object that represent a Gradient Stop. 
-     * Each of colors of a Gradient are represented 
-     * by a Stop. A Gradient can have as many Stops 
+     * An object that represent a Gradient Stop.
+     * Each of colors of a Gradient are represented
+     * by a Stop. A Gradient can have as many Stops
      * as you’d like.
      */
     interface GradientStop {
         /**
-         * The position of the Stop. 0 represents 
-         * the start of the gradient while 1 
+         * The position of the Stop. 0 represents
+         * the start of the gradient while 1
          * represent the end.
          */
         position: number;
@@ -1325,7 +1325,7 @@ export declare namespace _Sketch {
         /** The Library the Object is part of. */
         readonly library: Library;
         /**
-         * Import in the Document  
+         * Import in the Document
          * An Importable Object is linked to a Document so importing it will import it in the said Document.
          * @returns If the objectType of the Object is Symbol, it will return a Symbol Master which will be linked to the Library (meaning that if the Library is updated, the Symbol Instances created from the Master will be updated as well).
          */
@@ -1374,10 +1374,10 @@ export declare namespace _Sketch {
         /** The position of the end of the Gradient. */
         to: Point;
         /**
-         * When the gradient is Radial, the from and 
-         * to points makes one axis of the ellipse of 
-         * the gradient while the aspect ratio 
-         * determine the length of the orthogonal 
+         * When the gradient is Radial, the from and
+         * to points makes one axis of the ellipse of
+         * the gradient while the aspect ratio
+         * determine the length of the orthogonal
          * axis (aspectRatio === 1 means that it’s a circle).
          */
         aspectRatio: number;
@@ -1464,7 +1464,7 @@ export declare namespace _Sketch {
         enabled: boolean,
     }
     /**
-     * The fontAxes property allows you to adjust the parameters, or “axes”, exposed by variable fonts.  
+     * The fontAxes property allows you to adjust the parameters, or “axes”, exposed by variable fonts.
      * It works by allowing you to get and set an object representing the axes for a Text Layer’s current font. The object will only contain information about the axes supported by the Text Layer’s current font, and these will vary from font to font.
      */
     interface FontAxes {
@@ -1486,11 +1486,11 @@ export declare namespace _Sketch {
         /** Writes a document’s contents to a new file without changing the document’s current location to point to the new file. */
         SaveTo = 'SaveTo',
     }
-    /** 
-     * Enumeration of the available sketch types. 
-     * 
+    /**
+     * Enumeration of the available sketch types.
+     *
      * @warning
-     * It's not fully documented, extracted with `console.log(sketch.Types)`.  
+     * It's not fully documented, extracted with `console.log(sketch.Types)`.
      * mentioned here: https://developer.sketch.com/reference/api/#create-a-new-group
     */
     enum Types {
@@ -1555,22 +1555,22 @@ export declare namespace _Sketch {
     /** Enumeration of the type of a Gradient. */
     enum GradientType {
         /**
-         * Linear gradients tend to be the most common, 
-         * where two colors will appear at opposite 
-         * points of an object and will blend, or transition 
+         * Linear gradients tend to be the most common,
+         * where two colors will appear at opposite
+         * points of an object and will blend, or transition
          * into each other.
          */
         Linear = 'Linear',
         /**
-         * A radial gradient will create an effect where the 
-         * transition between color stops will be in a 
+         * A radial gradient will create an effect where the
+         * transition between color stops will be in a
          * circular pattern.
          */
         Radial = 'Radial',
         /**
-         * This effect allows you to create gradients that 
-         * sweep around the circumference (measured by the 
-         * maximum width or height of a layer) in a clockwise 
+         * This effect allows you to create gradients that
+         * sweep around the circumference (measured by the
+         * maximum width or height of a layer) in a clockwise
          * direction.
          */
         Angular = 'Angular',
@@ -1729,7 +1729,7 @@ interface ILayerConstructorOptions {
     /** If the layer is hidden. */
     hidden?: boolean;
     /**
-     * The frame of the Layer. This is given in coordinates 
+     * The frame of the Layer. This is given in coordinates
      * that are local to the parent of the layer.
      */
     frame?: Rectangle;
@@ -1749,12 +1749,12 @@ interface ILayerConstructorOptions {
         flippedVertically?: boolean;
     };
     /**
-     * The index of this layer in its parent. 
-     * The layer at the back of the parent (visually) 
-     * will be layer 0. The layer at the front will 
+     * The index of this layer in its parent.
+     * The layer at the back of the parent (visually)
+     * will be layer 0. The layer at the front will
      * be layer n - 1 (if there are n layers).
-     * 
-     * You can set the index of the layer to move 
+     *
+     * You can set the index of the layer to move
      * it in the hierarchy.
      */
     index?: number;
