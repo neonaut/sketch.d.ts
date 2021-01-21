@@ -1,4 +1,6 @@
-# Installation
+# TypeScript definitions for Sketch JavaScript API
+
+## Installation
 
 Install and save to devDependencies:
 
@@ -8,8 +10,10 @@ npm install --save-dev git+https://github.com/qjebbs/sketch.d.ts.git
 
 It's necessary to config TypeScript (use tsconfig.json) to use `es6` lib only, since:
 
-- "Sketch runs JavaScript code in JavaScriptCore, with full ES6 support"([Here](https://developer.sketch.com/plugins/javascript-environment)). 
-- Otherwise, TypeScript will introduce libs like `DOM`, which leads to duplicated definition to `Document` etc., and other unexpected behaviours.
+- "Sketch runs JavaScript code in JavaScriptCore, with full ES6 support"
+  ([Here](https://developer.sketch.com/plugins/javascript-environment)).
+- Otherwise, TypeScript will introduce libs like `DOM`, which leads to duplicated definition to
+  `Document` etc., and other unexpected behaviours.
 
 ```json
 {
@@ -21,23 +25,25 @@ It's necessary to config TypeScript (use tsconfig.json) to use `es6` lib only, s
 }
 ```
 
-# Summary
+## Summary
 This package contains type definitions for [Sketch JavaScript API](https://developer.sketch.com/reference/api).
 
-# Examples
+## Examples
 
 ```ts
-// Require all
-var sketch: Sketch = require('sketch');
+// Import all
+import sketch from "sketch";
 
-// Or, require without UI, Settings, DataSupplier, Async,
-var sketchDom: SketchDom = require('sketch/dom');
-// and require others according to your needs
-var async: Async = require('sketch/async');
-var DataSupplier: DataSupplier = require('sketch/data-supplier');
-var UI: UI = require('sketch/ui');
-var Settings: Settings = require('sketch/settings');
+// Or, import just the required modules according to your needs:
+import dom from "sketch/dom";
+import async from "sketch/async";
+import dataSupplier from "sketch/data-supplier";
+import ui from "sketch/ui";
+import settings from "sketch/settings";
 
-var document: Document = sketch.getSelectedDocument();
-var page: Page = document.selectedPage;
+// `document` has the type `undefined | Document`
+const document = sketch.getSelectedDocument();
+
+// `page` has the type `Page`
+const page = document.selectedPage;
 ```
