@@ -31,15 +31,7 @@ This package contains type definitions for [Sketch JavaScript API](https://devel
 ## Examples
 
 ```ts
-// Import all
 import sketch from "sketch";
-
-// Or, import just the required modules according to your needs:
-import dom from "sketch/dom";
-import async from "sketch/async";
-import dataSupplier from "sketch/data-supplier";
-import ui from "sketch/ui";
-import settings from "sketch/settings";
 
 // `document` has the type `undefined | Document`
 const document = sketch.getSelectedDocument();
