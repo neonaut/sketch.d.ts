@@ -1,6 +1,6 @@
 {
     "name": "@chpio/sketch",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "TypeScript definitions for Sketch JavaScript API",
     "main": "index.d.ts",
     "repository": {
