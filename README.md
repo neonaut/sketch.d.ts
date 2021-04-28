@@ -8,12 +8,10 @@ Install and save to devDependencies:
 npm install --save-dev @types/sketch@npm:@chpio/sketch
 ```
 
-It's necessary to config TypeScript (use tsconfig.json) to use `es6` lib only, since:
+It's necessary to config TypeScript (use tsconfig.json) to use `es6` lib, since:
 
 - "Sketch runs JavaScript code in JavaScriptCore, with full ES6 support"
   ([Here](https://developer.sketch.com/plugins/javascript-environment)).
-- Otherwise, TypeScript will introduce libs like `DOM`, which leads to duplicated definition to
-  `Document` etc., and other unexpected behaviours.
 
 ```json
 {
