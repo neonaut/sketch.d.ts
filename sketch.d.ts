@@ -1732,13 +1732,13 @@ interface ILayerConstructorOptions {
      * The frame of the Layer. This is given in coordinates
      * that are local to the parent of the layer.
      */
-    frame?: Rectangle;
+    frame?: _Sketch.Rectangle;
     /** If the layer is selected. */
     selected?: boolean;
     /** The prototyping action associated with the layer. */
-    flow?: Flow;
+    flow?: _Sketch.Flow;
     /** The export formats of the Layer. */
-    exportFormats?: ExportFormat[];
+    exportFormats?: _Sketch.ExportFormat[];
     /** The transformation applied to the Layer. */
     transform?: {
         /** The rotation of the Layer in degrees, clock-wise. */
@@ -1759,5 +1759,5 @@ interface ILayerConstructorOptions {
      */
     index?: number;
     /** The style of the Layer. */
-    style?: Style;
+    style?: _Sketch.Style;
 }
