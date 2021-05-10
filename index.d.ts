@@ -1,6 +1,15 @@
 import { _Sketch } from "./sketch";
 
 /**
+* Javascript API for Sketch
+* @example var sketch: Sketch = require('sketch');
+*/
+export type Sketch = _Sketch.Sketch;
+
+declare const sketchDefault: Sketch;
+export default sketchDefault;
+
+/**
 * Javascript API for Sketch without UI, Settings, DataSupplier, Async
 * @example // require without UI, Settings, DataSupplier, Async
 * var sketch = require('sketch/dom');
@@ -11,12 +20,6 @@ import { _Sketch } from "./sketch";
 * var Settings: Settings = require('sketch/settings');
 */
 export type SketchDom = _Sketch.SketchDom;
-
-/**
-* Javascript API for Sketch
-* @example var sketch: Sketch = require('sketch');
-*/
-export type Sketch = _Sketch.Sketch;
 
 export type Component = _Sketch.Component;
 
@@ -222,6 +225,3 @@ export type INPUT_TYPE = _Sketch.INPUT_TYPE;
 
 /**Enumeration of the animation types. */
 export type AnimationType = _Sketch.AnimationType;
-
-declare const sketchDefault: Sketch;
-export default sketchDefault;
