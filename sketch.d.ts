@@ -158,7 +158,7 @@ export declare namespace _Sketch {
          */
         createLayerFromData(data: Buffer | string, type: "svg" | "pdf" | "eps" | "bitmap"): Group | Image | Page;
 
-        fromSketchJSON();
+        fromSketchJSON(): void;
 
         /**
          * Get the Global Colors
@@ -391,7 +391,7 @@ export declare namespace _Sketch {
         save(path?: string, options?: { saveMode: SaveMode }, callback?: (error) => void): void;
 
         /** A method to close a document. */
-        close();
+        close(): void;
 
         /**
          * A method to change a document’s color space.
@@ -406,7 +406,7 @@ export declare namespace _Sketch {
          * @param colorSpace
          * @param convert
          */
-        changeColorSpace(colorSpace: ColorSpace, convert?: boolean);
+        changeColorSpace(colorSpace: ColorSpace, convert?: boolean): void;
 
         /** Enumeration of the available color space settings. */
         static get ColorSpace(): typeof ColorSpace;
@@ -427,7 +427,7 @@ export declare namespace _Sketch {
          * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
-        static open(callback?: (err: Error, document?: Document) => void);
+        static open(callback?: (err: Error, document?: Document) => void): void;
 
         /**
          * A method to open an existing sketch document or ask the
@@ -441,7 +441,7 @@ export declare namespace _Sketch {
          * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
-        static open(path: string, callback?: (err: Error, document?: Document) => void);
+        static open(path: string, callback?: (err: Error, document?: Document) => void): void;
 
         static get SaveMode(): typeof SaveMode;
     }
@@ -1466,7 +1466,7 @@ export declare namespace _Sketch {
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
-        setSettingForKey<T>(key: string, valye: T);
+        setSettingForKey<T>(key: string, valye: T): void;
 
         /**
          * Get a Sketch setting
@@ -1482,7 +1482,7 @@ export declare namespace _Sketch {
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
-        setGlobalSettingForKey<T>(key: string, valye: T);
+        setGlobalSettingForKey<T>(key: string, valye: T): void;
 
         /**
          * Get a Layer setting
@@ -1498,7 +1498,7 @@ export declare namespace _Sketch {
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
-        setLayerSettingForKey<T>(layer: Layer | Override | DataOverride, key: string, valye: T);
+        setLayerSettingForKey<T>(layer: Layer | Override | DataOverride, key: string, valye: T): void;
 
         /**
          * Get a Document setting
@@ -1513,7 +1513,7 @@ export declare namespace _Sketch {
          * @param key The setting to set.
          * @param valye The value to set it to.
          */
-        setDocumentSettingForKey<T>(document: Document, key: string, valye: T);
+        setDocumentSettingForKey<T>(document: Document, key: string, valye: T): void;
 
         /**
          * Get a session setting
@@ -1529,7 +1529,7 @@ export declare namespace _Sketch {
          * @param key The variable to set.
          * @param valye The value to set it to.
          */
-        setSessionVariable<T>(key: string, valye: T);
+        setSessionVariable<T>(key: string, valye: T): void;
     }
 
     /** A set of functions to show some user interfaces. The set is small on purpose. Any more complex UI should be provided by third party libraries and doesn’t need to be in the core. */
@@ -1578,7 +1578,7 @@ export declare namespace _Sketch {
 
             /** A function called after the user entered the input. It is called with an Error if the user canceled the input and a string or number depending on the input type (or undefined). */
             callback?: (err, result?: T) => void,
-        );
+        ): void;
 
         /** Get the theme of Sketch */
         getTheme(): 'light ' | ' dark';
@@ -1617,7 +1617,7 @@ export declare namespace _Sketch {
          * Do your clean up in this function instead of doing before calling fiber.cleanup: there might be some cases where the fiber will be cleaned up by Sketch so you need to account for that.
          * @param callback
          */
-        onCleanup(callback: () => void);
+        onCleanup(callback: () => void): void;
     }
 
     /**
