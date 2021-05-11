@@ -144,7 +144,7 @@ export declare namespace _Sketch {
             }
         ): Buffer | Buffer[] | Object | Object[] | undefined;
 
-        version(): { sketch: string; api: string }
+        version(): { sketch: string; api: string };
 
         /**
          * Import a file as a Layer.
@@ -371,7 +371,10 @@ export declare namespace _Sketch {
          * @param path
          * @param callback
          */
-        save(path?: string, callback?: (error) => void): void;
+        save(
+            path?: string,
+            callback?: (error: unknown) => void,
+        ): void;
 
         /**
          * A method to save a document to a specific path
@@ -388,7 +391,11 @@ export declare namespace _Sketch {
          * @param options
          * @param callback
          */
-        save(path?: string, options?: { saveMode: SaveMode }, callback?: (error) => void): void;
+        save(
+            path?: string,
+            options?: { saveMode: SaveMode },
+            callback?: (error: unknown) => void,
+        ): void;
 
         /** A method to close a document. */
         close(): void;
@@ -535,7 +542,10 @@ export declare namespace _Sketch {
          * @param url The URL to the rss feed describing the versions of the library.
          * @param callback A function called after the library is added. It is called with an Error if adding the Library was unsuccessful and a Library (or undefined).
          */
-        static getRemoteLibraryWithRSS(url: string, callback: (err, library?: Library) => void): void;
+        static getRemoteLibraryWithRSS(
+            url: string,
+            callback: (err: unknown, library?: Library) => void,
+        ): void;
     }
 
     /** The style of a Layer. */
@@ -824,7 +834,7 @@ export declare namespace _Sketch {
          * @param scaleHeight
          * @returns Return this rectangle (useful if you want to chain the calls).
          */
-        scale(scaleWidth, scaleHeight): Rectangle;
+        scale(scaleWidth: number, scaleHeight?: number): Rectangle;
 
         /**
          * Change the coordinates basis
@@ -1240,7 +1250,12 @@ export declare namespace _Sketch {
         fixedWidth: boolean;
 
         /** Returns a array of the text fragments for the text. Each one is a object containing a rectangle, a baseline offset, the range of the fragment, and the substring {rect, baselineOffset, range, text}. */
-        fragments: { rect, baselineOffset, range, text }[];
+        fragments: Array<{
+            rect: unknown,
+            baselineOffset: unknown,
+            range: unknown,
+            text: unknown,
+        }>;
 
         /** Adjust the Text to fit its value. */
         adjustToFit(): Text;
@@ -1577,7 +1592,7 @@ export declare namespace _Sketch {
             },
 
             /** A function called after the user entered the input. It is called with an Error if the user canceled the input and a string or number depending on the input type (or undefined). */
-            callback?: (err, result?: T) => void,
+            callback?: (err: unknown, result?: T) => void,
         ): void;
 
         /** Get the theme of Sketch */
@@ -1644,10 +1659,10 @@ export declare namespace _Sketch {
      */
     interface ImageData {
         /** return a native NSImage */
-        nsimage,
+        nsimage: unknown,
 
         /** return a native NSData representation of the image */
-        nsdata,
+        nsdata: unknown,
     }
 
     /** An Object that can imported from a Library. All its properties are read-only. */
