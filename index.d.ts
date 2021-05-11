@@ -203,9 +203,6 @@ export type BlendingMode = _Sketch.BlendingMode;
 /** Enumeration of the type of a blur. */
 export type BlurType = _Sketch.BlurType;
 
-/** Enumeration of the types of fill. */
-export type FillType = _Sketch.FillType;
-
 /** Enumeration of the types of pattern fill. */
 export type PatternFillType = _Sketch.PatternFillType;
 

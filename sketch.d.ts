@@ -650,7 +650,6 @@ export declare namespace _Sketch {
         static get GradientType(): typeof GradientType;
         static get BlendingMode(): typeof BlendingMode;
         static get BlurType(): typeof BlurType;
-        static get FillType(): typeof FillType;
         static get PatternFillType(): typeof PatternFillType;
         static get BorderPosition(): typeof BorderPosition;
         static get Arrowhead(): typeof Arrowhead;
@@ -1775,16 +1774,34 @@ export declare namespace _Sketch {
         enabled: boolean,
     }
 
-    /** An object that represent a Fill. color, gradient and pattern will always be defined regardless of the type of the fill. */
-    interface Fill {
+    /** An object that represent a Fill. color, gradient and pattern will always be defined
+     * regardless of the type of the fill. */
+    type Fill = FillColor | FillGradient | FillPattern;
+
+    interface FillShared {
+        /** Whether the fill is active or not. */
+        enabled: boolean,
+    }
+
+    interface FillColor extends FillShared {
         /** The type of the fill. */
-        fillType: FillType,
+        fillType: "Color",
 
         /** A rgba hex-string (`#000000ff` is opaque black). */
         color: string,
+    }
+
+    interface FillGradient extends FillShared {
+        /** The type of the fill. */
+        fillType: "Gradient",
 
         /** The gradient of the fill. */
         gradient: Gradient,
+    }
+
+    interface FillPattern extends FillShared {
+        /** The type of the fill. */
+        fillType: "Pattern",
 
         /** The pattern of the fill. */
         pattern: {
@@ -1797,15 +1814,12 @@ export declare namespace _Sketch {
             /** The scale applied to the tile of the pattern. */
             tileScale: number,
         },
-
-        /** Whether the fill is active or not. */
-        enabled: boolean,
     }
 
     /** An object that represent a Border. */
     interface Border {
         /** The type of the fill of the border. */
-        fillType: FillType,
+        fillType: "Color" | "Gradient",
 
         /** A rgba hex-string (`#000000ff` is opaque black). */
         color: string,
@@ -2085,13 +2099,6 @@ export declare namespace _Sketch {
 
         /** This will blur any content that appears behind the layer. */
         Background = 'Background',
-    }
-
-    /** Enumeration of the types of fill. */
-    enum FillType {
-        Color = 'Color',
-        Gradient = 'Gradient',
-        Pattern = 'Pattern',
     }
 
     /** Enumeration of the types of pattern fill. */
