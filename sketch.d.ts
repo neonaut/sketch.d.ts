@@ -693,7 +693,7 @@ export declare namespace _Sketch {
          * Get Library defining the style
          * @returns The Library the Shared Style was defined in, or null if it is a local shared style.
          */
-        getLibrary(): Library;
+        getLibrary(): null | Library;
 
         /**
          * Sync the local reference with the library version
@@ -1018,7 +1018,7 @@ export declare namespace _Sketch {
         } & ILayerConstructorOptions);
 
         /** The associated shared style or null. */
-        sharedStyle: SharedStyle;
+        sharedStyle: null | SharedStyle;
 
         /** The Layers that this component groups together. */
         layers: Layer[];
@@ -1112,7 +1112,7 @@ export declare namespace _Sketch {
         style: Style;
 
         /** The associated shared style or null. */
-        sharedStyle: SharedStyle;
+        sharedStyle: null | SharedStyle;
 
         /** The Layers that this component groups together. */
         layers: ShapePath[];
@@ -1145,7 +1145,7 @@ export declare namespace _Sketch {
         style: Style;
 
         /** The associated shared style or null. */
-        sharedStyle: SharedStyle;
+        sharedStyle: null | SharedStyle;
 
         /** The ID of the SharedStyle or null, identical to sharedStyle.id. */
         sharedStyleId: string | null;
@@ -1181,7 +1181,7 @@ export declare namespace _Sketch {
         style: Style;
 
         /** The associated shared style or null. */
-        sharedStyle: SharedStyle;
+        sharedStyle: null | SharedStyle;
 
         /** The ID of the SharedStyle or null, identical to sharedStyle.id. */
         sharedStyleId: string | null;
@@ -1240,7 +1240,7 @@ export declare namespace _Sketch {
         style: Style;
 
         /** The associated shared style or null. */
-        sharedStyle: SharedStyle;
+        sharedStyle: null | SharedStyle;
 
         /** The ID of the SharedStyle or null, identical to sharedStyle.id. */
         sharedStyleId: string | null;
@@ -1304,7 +1304,7 @@ export declare namespace _Sketch {
          * - get the library back
          * @returns The Library the symbol was defined in, or null if it is a local symbol.
          */
-        getLibrary(): Library;
+        getLibrary(): null | Library;
 
         /**
          * Sync the local reference with the library version
@@ -1369,7 +1369,7 @@ export declare namespace _Sketch {
         detach(options?: {
             /** If it should detach the nested symbols as well. Default to false. */
             recursively: boolean;
-        }): Group;
+        }): null | Group;
 
         /**
          * Change the value of the override.
@@ -1698,7 +1698,7 @@ export declare namespace _Sketch {
     /** Wrapper classes that are used to represent reusable color assets retrieved from a document or globally. */
     interface ColorAsset {
         /** The name of the asset, or null. */
-        name: string;
+        name: null | string;
 
         /** The hex string for the color. */
         color: string;
@@ -1708,7 +1708,7 @@ export declare namespace _Sketch {
     class Swatch {
         static from(option: {
             /** The name of the swatch, or null. */
-            name: string,
+            name: null | string,
             /** The hex string for the color. */
             color: string,
         }): Swatch;
@@ -1726,7 +1726,7 @@ export declare namespace _Sketch {
     /** Wrapper classes that are used to represent reusable gradient assets retrieved from a document or globally. */
     interface GradientAsset {
         /** The name of the asset, or null. */
-        name: string;
+        name: null | string;
 
         /** The gradient object. */
         gradient: Gradient;
