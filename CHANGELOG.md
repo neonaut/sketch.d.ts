@@ -1,5 +1,7 @@
 # Changelog
 
+## v3.0.0-alpha.0
+
 * make `Fill` discriminated by its type (BREAKING: removes `FillType` enum)
 * fix callback error type
 * add missing `null` types in return or argument positions
