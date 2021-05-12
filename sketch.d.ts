@@ -434,7 +434,7 @@ export declare namespace _Sketch {
          * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
-        static open(callback?: (err: Error, document?: Document) => void): void;
+        static open(callback?: (err: undefined | null | Error, document?: Document) => void): void;
 
         /**
          * A method to open an existing sketch document or ask the
@@ -448,7 +448,10 @@ export declare namespace _Sketch {
          * opened. It is called with an Error if opening the Document
          * was unsuccessful and a Document (or undefined).
          */
-        static open(path: string, callback?: (err: Error, document?: Document) => void): void;
+        static open(
+            path: string,
+            callback?: (err: undefined | null | Error, document?: Document) => void,
+        ): void;
 
         static get SaveMode(): typeof SaveMode;
     }
