@@ -1,134 +1,104 @@
-declare const sketchDefault: Sketch;
+// declare const sketchDefault: Sketch;
+// export default sketchDefault;
+
+// declare namespace sketchDefault {
+// }
+
 export default sketchDefault;
 
 /**
- * Javascript API for Sketch without UI, Settings, DataSupplier, Async
- * @example // require without UI, Settings, DataSupplier, Async
- * var sketch: SketchDom = require('sketch/dom');
+ * Javascript API for Sketch
+ * @example var sketch: Sketch = require('sketch');
  */
-export class SketchDom {
-    /** A Sketch document. */
-    Document: typeof Document;
+declare namespace sketchDefault {
+    // /** A Sketch document. */
+    export {
+        Document,
+        Flow,
+        Image,
+        Style,
+        Page,
+        Shape,
+        SymbolMaster,
+        SharedStyle,
+        Slice,
+        ShapePath,
+        Group,
+        HotSpot,
+        Types,
+        Artboard,
+        SymbolInstance,
+        Rectangle,
+        Text,
+        SmartLayoutObject as SmartLayout,
+        Layer,
+        Library,
+        Swatch,
 
-    /** The prototyping action associated with a layer. */
-    Flow: typeof Flow;
-
-    /** An image layer. */
-    Image: typeof Image;
-
-    /** The style of a Layer. */
-    Style: typeof Style;
-
-    /** A Sketch page. It is an instance of both Layer and Group so all the methods defined there are available. */
-    Page: typeof Page;
-
-    /** A shape layer. It is shaped by its layers which have boolean operations between them. */
-    Shape: typeof Shape;
-
-    /** A Symbol master. It is an instance of Artboard (hence of Layer and Group) so all the methods defined there are available. */
-    SymbolMaster: typeof SymbolMaster;
-
-    /** A shared style (either a layer style or a text style). */
-    SharedStyle: typeof SharedStyle;
-
-    /** A Sketch slice. */
-    Slice: typeof Slice;
-
-    /** A shape path layer. */
-    ShapePath: typeof ShapePath;
-
-    /** A group of layers. It is also an instance of Layer so all the methods defined there are available. */
-    Group: typeof Group;
-
-    /** A Sketch hotspot. */
-    HotSpot: typeof HotSpot;
-
-    /** Enumeration of the available color space settings. */
-    Types: typeof Types;
-
-    /** A Sketch artboard. It is an instance of both Layer and Group so all the methods defined there are available. */
-    Artboard: typeof Artboard;
-
-    /** A Symbol instance. */
-    SymbolInstance: typeof SymbolInstance;
-
-    /** A utility export class to represent a rectangle. Contains some methods to make interacting with a rectangle easier. */
-    Rectangle: typeof Rectangle;
-
-    /** A text layer. */
-    Text: typeof Text;
-
-    /** The SmartLayout object contains the set of possible Smart Layouts that can be applied to SymbolMaster and Group layers. */
-    SmartLayout: SmartLayoutObject;
-
-    /** A Sketch layer. This is the base export class for most of the Sketch components and defines methods to manipulate them. */
-    Layer: typeof Layer;
-
-    /** A Sketch Library. */
-    Library: typeof Library;
-
-    /** A Color that references a Color Variable, which you can use anywhere the API expects a Color object. */
-    Swatch: typeof Swatch;
+        UI,
+        Async,
+        Settings,
+    };
 
     /** Access all the open Documents */
-    getDocuments(): Document[];
+    export function getDocuments(): Array<Document>;
 
     /** Access all the Libraries */
-    getLibraries(): Library[];
+    export function getLibraries(): Array<Library>;
 
-    /**
-     * Export an object, using the options supplied.
-     * @param object The object to export.
-     * @param options Options indicating which sizes and formats to use, etc.
-     * @returns The method returns:
-     * - undefined if options.output is undefined or a string
-     * - an array of Buffers if objectToExport is an array and options.formats is an image format
-     * - an array of Objects if objectToExport is an array and options.formats is json
-     * - a Buffer if objectToExport is a single item and options.formats is an image format
-     * - a Object if objectToExport is a single item and options.formats is json
-     */
-    export(
-        object: Layer | Layer[] | Page | Page[],
-        options?: {
-            /** this is the path of the folder where all exported files are placed (defaults to "`~/Documents/Sketch Exports`"). If falsey, the data for the objects are returned immediately. */
-            output?: string,
+    // /**
+    //  * Export an object, using the options supplied.
+    //  * @param object The object to export.
+    //  * @param options Options indicating which sizes and formats to use, etc.
+    //  * @returns The method returns:
+    //  * - undefined if options.output is undefined or a string
+    //  * - an array of Buffers if objectToExport is an array and options.formats is an image format
+    //  * - an array of Objects if objectToExport is an array and options.formats is json
+    //  * - a Buffer if objectToExport is a single item and options.formats is an image format
+    //  * - a Object if objectToExport is a single item and options.formats is json
+    //  */
+    // export declare function export(
+    //     object: Layer | Layer[] | Page | Page[],
+    //     options?: {
+    //         /** this is the path of the folder where all exported files are placed (defaults to "`~/Documents/Sketch Exports`"). If falsey, the data for the objects are returned immediately. */
+    //         output?: string,
 
-            /** Comma separated list of formats to export to (png, jpg, svg, json, tiff, eps, webp or pdf) (default to "png") */
-            formats?: string,
+    //         /** Comma separated list of formats to export to (png, jpg, svg, json, tiff, eps, webp or pdf) (default to "png") */
+    //         formats?: string,
 
-            /** Comma separated list of scales which determine the sizes at which the layers are exported (defaults to "1"). */
-            scales?: string,
+    //         /** Comma separated list of scales which determine the sizes at which the layers are exported (defaults to "1"). */
+    //         scales?: string,
 
-            /** Name exported images using their id rather than their name (defaults to false). */
-            'use-id-for-name'?: boolean,
+    //         /** Name exported images using their id rather than their name (defaults to false). */
+    //         'use-id-for-name'?: boolean,
 
-            /** Export only layers that are contained within the group (default to false). */
-            'group-contents-only'?: boolean,
+    //         /** Export only layers that are contained within the group (default to false). */
+    //         'group-contents-only'?: boolean,
 
-            /** Overwrite existing files (if any) with newly generated ones (defaults to false). */
-            overwriting?: boolean,
+    //         /** Overwrite existing files (if any) with newly generated ones (defaults to false). */
+    //         overwriting?: boolean,
 
-            /** Trim any transparent space around the exported image (leaving it undefined will match Sketch’s behavior: trim for layers that do not have a background color). */
-            trimmed?: boolean,
+    //         /** Trim any transparent space around the exported image (leaving it undefined will match Sketch’s behavior: trim for layers that do not have a background color). */
+    //         trimmed?: boolean,
 
-            /** If exporting a PNG, remove metadata such as the colour profile from the exported file (defaults to false). */
-            'save-for-web'?: boolean,
+    //         /** If exporting a PNG, remove metadata such as the colour profile from the exported file (defaults to false). */
+    //         'save-for-web'?: boolean,
 
-            /** If exporting a SVG, make the output more compact (defaults to false). */
-            compact?: boolean,
+    //         /** If exporting a SVG, make the output more compact (defaults to false). */
+    //         compact?: boolean,
 
-            /** If exporting a SVG, include extra attributes (defaults to false). */
-            'include-namespaces'?: boolean,
+    //         /** If exporting a SVG, include extra attributes (defaults to false). */
+    //         'include-namespaces'?: boolean,
 
-            /** If exporting a JPG, export a progressive JPEG (only used when exporting to jpeg) (defaults to false). */
-            progressive?: boolean,
+    //         /** If exporting a JPG, export a progressive JPEG (only used when exporting to jpeg) (defaults to false). */
+    //         progressive?: boolean,
 
-            /** If exporting a JPG, the compression level to use fo jpeg (with 0 being the completely compressed, 1.0 no compression) (defaults to 1.0). */
-            compression?: number,
-        }
-    ): Buffer | Buffer[] | Object | Object[] | undefined;
+    //         /** If exporting a JPG, the compression level to use fo jpeg (with 0 being the completely compressed, 1.0 no compression) (defaults to 1.0). */
+    //         compression?: number,
+    //     }
+    // ): Buffer | Buffer[] | Object | Object[] | undefined;
 
-    version(): { sketch: string; api: string };
+    export function version(): { sketch: string; api: string };
 
     /**
      * Import a file as a Layer.
@@ -140,23 +110,23 @@ export class SketchDom {
      * - an Image if the type is bitmap
      * - a Page if the type is pdf and the pdf has multiple pages or eps
      */
-    createLayerFromData(data: Buffer | string, type: "svg" | "pdf" | "eps" | "bitmap"): Group | Image | Page;
+    export function createLayerFromData(data: Buffer | string, type: "svg" | "pdf" | "eps" | "bitmap"): Group | Image | Page;
 
-    fromSketchJSON(): void;
+    export function fromSketchJSON(): void;
 
     /**
      * Get the Global Colors
      * @example var sketch = require('sketch/dom')
      * var colors = sketch.globalAssets.colors
      */
-    get globalAssets(): Assets;
+    export const globalAssets: Assets;
 
     /** The selected Document or undefined if no document is open. */
-    getSelectedDocument(): Document | undefined;
+    export function getSelectedDocument(): Document | undefined;
 
-    get getGlobalColors(): ColorAsset[];
+    export const getGlobalColors: Array<ColorAsset>;
 
-    get getGlobalGradients(): GradientAsset[];
+    export const getGlobalGradients: Array<GradientAsset>;
 
     /**
      * Find Layers fitting some criteria.
@@ -183,32 +153,14 @@ export class SketchDom {
      * // find all the Shape named "Layer-Name"
      * sketch.find('Shape, [name="Layer-Name"]')
      */
-    find<T>(selector: string, scope?: Document | Artboard | Page | Group): T[];
+    export function find<T>(selector: string, scope?: Document | Artboard | Page | Group): T[];
 
     /**
      * A utility function to get a wrapped object from a native Sketch model object.
      * @param object The native Sketch model object to wrap.
      * @returns The wrapped object of the right type (you can check is type with wrappedObject.type), eg. a native document will be wrapped as a Document while a native text layer will be wrapped as a Text.
      */
-    fromNative<T>(object: object): T;
-}
-
-/**
- * Javascript API for Sketch
- * @example var sketch: Sketch = require('sketch');
- */
-export class Sketch extends SketchDom {
-    /** A set of functions to show some user interfaces. The set is small on purpose. Any more complex UI should be provided by third party libraries and doesn’t need to be in the core. */
-    UI: UI;
-
-    /** A way to keep track of a asynchronous task. The script will stay alive as long as at least one fiber is running. */
-    Async: Async;
-
-    /** A set of functions to handle user settings. The settings are persisted when the user closes Sketch. */
-    Settings: Settings;
-
-    /** When your plugin supplies some data, don’t forget to set the suppliesData field to true in your manifest.json! */
-    DataSupplier: typeof DataSupplier;
+    export function fromNative<T>(object: object): T;
 }
 
 export class Component {
@@ -536,7 +488,7 @@ export class Library extends Component {
 }
 
 /** The style of a Layer. */
-export class Style extends Component {
+declare class Style extends Component {
     /** The unique ID of the Style. */
     id: string;
 
@@ -637,6 +589,7 @@ export class Style extends Component {
     static get GradientType(): typeof GradientType;
     static get BlendingMode(): typeof BlendingMode;
     static get BlurType(): typeof BlurType;
+    static get FillType(): typeof FillType;
     static get PatternFillType(): typeof PatternFillType;
     static get BorderPosition(): typeof BorderPosition;
     static get Arrowhead(): typeof Arrowhead;
@@ -645,7 +598,7 @@ export class Style extends Component {
 }
 
 /** A shared style (either a layer style or a text style). */
-export class SharedStyle extends Component {
+declare class SharedStyle extends Component {
     /** returns a wrapped object from a native Sketch model object */
     static fromNative(sketchObject: object): SharedStyle;
 
@@ -1772,7 +1725,7 @@ interface FillShared {
 
 interface FillColor extends FillShared {
     /** The type of the fill. */
-    fillType: "Color",
+    fillType: FillType.Color,
 
     /** A rgba hex-string (`#000000ff` is opaque black). */
     color: string,
@@ -1780,7 +1733,7 @@ interface FillColor extends FillShared {
 
 interface FillGradient extends FillShared {
     /** The type of the fill. */
-    fillType: "Gradient",
+    fillType: FillType.Gradient,
 
     /** The gradient of the fill. */
     gradient: Gradient,
@@ -1788,7 +1741,7 @@ interface FillGradient extends FillShared {
 
 interface FillPattern extends FillShared {
     /** The type of the fill. */
-    fillType: "Pattern",
+    fillType: FillType.Pattern,
 
     /** The pattern of the fill. */
     pattern: {
@@ -1806,7 +1759,7 @@ interface FillPattern extends FillShared {
 /** An object that represent a Border. */
 interface Border {
     /** The type of the fill of the border. */
-    fillType: "Color" | "Gradient",
+    fillType: FillType.Color | FillType.Gradient,
 
     /** A rgba hex-string (`#000000ff` is opaque black). */
     color: string,
@@ -2086,6 +2039,13 @@ export enum BlurType {
 
     /** This will blur any content that appears behind the layer. */
     Background = 'Background',
+}
+
+/** Enumeration of the types of fill. */
+declare enum FillType {
+    Color = 'Color',
+    Gradient = 'Gradient',
+    Pattern = 'Pattern',
 }
 
 /** Enumeration of the types of pattern fill. */
