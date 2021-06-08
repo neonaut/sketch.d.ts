@@ -5,7 +5,7 @@
 Install and save to devDependencies:
 
 ```sh
-npm install --save-dev @types/sketch@npm:@chpio/sketch
+npm install --save-dev @types/sketch@npm:@neonaut/sketch
 ```
 
 It's necessary to config TypeScript (use tsconfig.json) to use `es6` lib, since:
