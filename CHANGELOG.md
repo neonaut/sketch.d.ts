@@ -1,5 +1,8 @@
 # Changelog
 
+## v3.0.0-alpha.2
+* fix: declare `Fill` fields as always defined
+
 ## v3.0.0-alpha.0
 
 * make `Fill` discriminated by its type (BREAKING: removes `FillType` enum)
