@@ -1779,32 +1779,18 @@ export declare namespace _Sketch {
 
     /** An object that represent a Fill. color, gradient and pattern will always be defined
      * regardless of the type of the fill. */
-    type Fill = FillColor | FillGradient | FillPattern;
+    interface Fill {
+        /** The type of the fill. */
+        fillType: "Color" | "Gradient" | "Pattern",
 
-    interface FillShared {
         /** Whether the fill is active or not. */
         enabled: boolean,
-    }
-
-    interface FillColor extends FillShared {
-        /** The type of the fill. */
-        fillType: "Color",
 
         /** A rgba hex-string (`#000000ff` is opaque black). */
         color: string,
-    }
-
-    interface FillGradient extends FillShared {
-        /** The type of the fill. */
-        fillType: "Gradient",
 
         /** The gradient of the fill. */
         gradient: Gradient,
-    }
-
-    interface FillPattern extends FillShared {
-        /** The type of the fill. */
-        fillType: "Pattern",
 
         /** The pattern of the fill. */
         pattern: {
